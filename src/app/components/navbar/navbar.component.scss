@@ -1,0 +1,94 @@
+.secondary-nav {
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  margin-top: 80px;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 600px) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 550px;
+    white-space: normal;
+    margin-top: 120px;
+  }
+}
+
+.secondary-nav-item {
+  padding: 0.5rem 1rem;
+  color: #495057;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover,
+  &.active {
+    color: #1a73e8;
+    border-bottom-color: #1a73e8;
+  }
+}
+
+.dropdown-toggle::after {
+  vertical-align: middle;
+}
+
+.navbar {
+  padding: 0.75rem 1rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.badge {
+  font-size: 0.7rem;
+  padding: 0.2em 0.4em;
+}
+
+.dropdown-menu {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border: 1px solid #eaeaea;
+}
+.navbar-brand {
+  margin-right: 70px;
+}
+.navbar .nav-item .dropdown-toggle {
+  font-family: "Neue Haas Grotesk Display Pro", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+.navbar .nav-item {
+  margin-right: 26px;
+}
+
+.navbar .nav-item:last-child {
+  margin-right: 0;
+}
+.dropdown-menu {
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  padding: 8px 16px;
+}
+.custom-badge-position {
+  transform: translate(-80%, 20%) !important;
+}
+.small-caret {
+  font-size: 0.75rem;
+  padding-left: 2px;
+}

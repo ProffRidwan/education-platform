@@ -1,0 +1,115 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+  <div class="container d-flex align-items-center justify-content-between">
+ 
+    <a class="navbar-brand" routerLink="/">
+      <img src="assets/companylogo.png" alt="Logo" height="40">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse me-auto" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">
+            Products
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+            <li><a class="dropdown-item" href="#">Product 1</a></li>
+            <li><a class="dropdown-item" href="#">Product 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown">
+            Solutions
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
+            <li><a class="dropdown-item" href="#">Solution 1</a></li>
+            <li><a class="dropdown-item" href="#">Solution 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown">
+            Resources
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+            <li><a class="dropdown-item" href="#">Resource 1</a></li>
+            <li><a class="dropdown-item" href="#">Resource 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="companyDropdown" role="button" data-bs-toggle="dropdown">
+            Our Company
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="companyDropdown">
+            <li><a class="dropdown-item" href="#">About Us</a></li>
+            <li><a class="dropdown-item" href="#">Contact</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+   
+    <div class="d-flex align-items-center gap-3">
+      <button class="btn btn-link text-dark">
+        <i class="bi bi-search fs-5"></i>
+      </button>
+
+     
+      <div class="position-relative">
+        <button class="btn btn-link text-dark position-relative">
+          <i class="bi bi-chat-left-fill fs-4"></i>
+          <span class="position-absolute top-0 start-100 custom-badge-position badge rounded-pill bg-danger">
+            99+
+          </span>
+        </button>
+      </div>
+      
+
+   
+      <div class="dropdown ps-3"> 
+        <button class="btn p-0 d-flex align-items-center gap-1" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="assets/Images/loggedInUserImg.png" alt="Profile" class="rounded-circle" width="32" height="32">
+          <i class="bi bi-chevron-down small-caret"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Logout</a></li>
+        </ul>
+      </div>      
+    </div>
+  </div>
+</nav>
+
+
+<div class="secondary-nav bg-white border-bottom py-2">
+  <div class="container px-3 d-flex flex-wrap overflow-auto justify-content-center align-items-center gap-3">
+    <a href="#" class="secondary-nav-item fw-medium mx-2">
+      <i class="bi bi-grid me-2"></i> Dashboard
+    </a>
+    <a href="#"  class="secondary-nav-item fw-medium mx-2">
+      <i class="bi bi-file-earmark-text me-2"></i> Applications
+    </a>
+    <a href="#"  class="secondary-nav-item fw-medium mx-2">
+      <i class="bi bi-calendar me-2"></i> Bookings
+    </a>
+    <a href="#"  class="secondary-nav-item fw-medium mx-2">
+      <i class="bi bi-credit-card me-2"></i> Payments
+      <i class="bi bi-chevron-down small-caret"></i>
+    </a>
+    <a href="#"  class="secondary-nav-item fw-medium mx-2">
+      <i class="bi bi-gear me-2"></i> Settings
+    </a>
+  </div>
+</div>
+
+
+
+<div style="margin-top: 70px;"></div>
+
+
+  

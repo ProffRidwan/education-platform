@@ -1,0 +1,248 @@
+<div class="p-3 bg-white rounded shadow-sm">
+  <h5 class="mb-3 border-bottom">Filter by</h5>
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('attendance')">
+      <label class="form-label form-label-header">Attendance</label>
+      <span class="caret" [class.rotate]="isExpanded.attendance">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.attendance">
+      <div class="form-check" *ngFor="let option of attendanceOptions">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [id]="option.value"
+          [(ngModel)]="filters.attendance[option.value]"
+        />
+        <label class="form-check-label" [for]="option.value"
+          >{{ option.label }} ({{ option.count }})</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('tuitionFee')">
+      <label class="form-label form-label-header">Tuition Fee</label>
+      <span class="caret" [class.rotate]="isExpanded.tuitionFee">
+        <i class="bi bi-chevron-down small-caret"></i>
+      </span>
+    </div>
+
+    <div *ngIf="isExpanded.tuitionFee">
+      <ngx-slider
+        [(value)]="minValue"
+        [(highValue)]="maxValue"
+        [options]="options"
+      ></ngx-slider>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('country')">
+      <label class="form-label form-label-header">Country</label>
+      <span class="caret" [class.rotate]="isExpanded.country">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.country">
+      <input
+        type="text"
+        class="form-control mb-2"
+        placeholder="Search countries..."
+        [(ngModel)]="searchCountry"
+      />
+      <div class="filter-scroll">
+        <div
+          class="form-check"
+          *ngFor="
+            let country of filteredCountries()
+              | slice : 0 : (showAllCountries ? countries.length : 5)
+          "
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="country.code"
+            [(ngModel)]="filters.countries[country.code]"
+          />
+          <label class="form-check-label" [for]="country.code"
+            >{{ country.name }} ({{ country.count }})</label
+          >
+        </div>
+      </div>
+      <div class="see-all-text-parent my-1">
+        <small
+          class="see-all-text"
+          (click)="showAllCountries = !showAllCountries"
+        >
+          {{ showAllCountries ? "Show less" : "See all countries" }}
+        </small>
+        <span class="caret" [class.rotate]="!showAllCountries"
+          ><i class="bi bi-chevron-down see-all-text"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('institutes')">
+      <label class="form-label form-label-header">Institutes</label>
+      <span class="caret" [class.rotate]="isExpanded.institutes">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.institutes">
+      <input
+        type="text"
+        class="form-control mb-2"
+        placeholder="Search institutes..."
+        [(ngModel)]="searchInstitute"
+      />
+      <div class="filter-scroll">
+        <div
+          class="form-check"
+          *ngFor="
+            let institute of filteredInstitutes()
+              | slice : 0 : (showAllInstitutes ? institutes.length : 5)
+          "
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="institute.id"
+            [(ngModel)]="filters.institutes[institute.id]"
+          />
+          <label class="form-check-label" [for]="institute.id"
+            >{{ institute.name }} ({{ institute.count }})</label
+          >
+        </div>
+      </div>
+      <div class="see-all-text-parent my-1">
+        <small
+          class="see-all-text"
+          (click)="showAllInstitutes = !showAllInstitutes"
+        >
+          {{ showAllInstitutes ? "Show less" : "See all institutes" }}
+        </small>
+        <span class="caret" [class.rotate]="!showAllInstitutes"
+          ><i class="bi bi-chevron-down see-all-text"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('languages')">
+      <label class="form-label form-label-header">Languages</label>
+      <span class="caret" [class.rotate]="isExpanded.languages">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.languages">
+      <input
+        type="text"
+        class="form-control mb-2"
+        placeholder="Search languages..."
+        [(ngModel)]="searchLanguage"
+      />
+      <div class="filter-scroll">
+        <div
+          class="form-check"
+          *ngFor="
+            let language of filteredLanguages()
+              | slice : 0 : (showAllLanguages ? languages.length : 5)
+          "
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [id]="language.id"
+            [(ngModel)]="filters.languages[language.id]"
+          />
+          <label class="form-check-label" [for]="language.id"
+            >{{ language.name }} ({{ language.count }})</label
+          >
+        </div>
+      </div>
+      <div class="see-all-text-parent my-1">
+        <small
+          class="see-all-text"
+          (click)="showAllLanguages = !showAllLanguages"
+        >
+          {{ showAllLanguages ? "Show less" : "See all languages" }}
+        </small>
+        <span class="caret" [class.rotate]="!showAllLanguages"
+          ><i class="bi bi-chevron-down see-all-text"></i
+        ></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('levels')">
+      <label class="form-label form-label-header">Level</label>
+      <span class="caret" [class.rotate]="isExpanded.levels">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.levels">
+      <div class="form-check" *ngFor="let option of levels">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [id]="option.value"
+          [(ngModel)]="filters.levels[option.value]"
+        />
+        <label class="form-check-label" [for]="option.value"
+          >{{ option.label }} ({{ option.count }})</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('types')">
+      <label class="form-label form-label-header">Types</label>
+      <span class="caret" [class.rotate]="isExpanded.types">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.types">
+      <div class="form-check" *ngFor="let option of types">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [id]="option.value"
+          [(ngModel)]="filters.types[option.value]"
+        />
+        <label class="form-check-label" [for]="option.value"
+          >{{ option.label }} ({{ option.count }})</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3 border-bottom">
+    <div class="filter-header" (click)="toggleSection('duration')">
+      <label class="form-label form-label-header">Durations</label>
+      <span class="caret" [class.rotate]="isExpanded.duration">
+        <i class="bi bi-chevron-down small-caret"></i
+      ></span>
+    </div>
+    <div *ngIf="isExpanded.duration">
+      <div class="form-check" *ngFor="let option of durations">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [id]="option.value"
+          [(ngModel)]="filters.durations[option.value]"
+        />
+        <label class="form-check-label" [for]="option.value"
+          >{{ option.label }} ({{ option.count }})</label
+        >
+      </div>
+    </div>
+  </div>
+</div>

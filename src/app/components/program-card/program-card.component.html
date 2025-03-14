@@ -1,0 +1,68 @@
+<div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+  
+  <div class="position-relative">
+    <img [src]="program.image" [alt]="program.title" class="card-img-top" style="height: 250px; object-fit: cover;">
+    
+   
+    <button (click)="toggleFavorite($event)" class="position-absolute  favIcon btn btn-light rounded-circle m-2 shadow">
+      <i [class]="program.isFavorite ? 'bi bi-heart-fill text-danger' : 'bi bi-heart'"></i>
+    </button>
+     <div class="position-absolute InstitutionName  bg-white rounded-pill px-2 py-1 d-flex align-items-center shadow-sm">
+      <img [src]="program.schoolIcon" [alt]="program.schoolIcon" class="me-2" style="width: 18px; height: 18px;">
+      <p class="card-text mb-0">{{program.university}}</p>
+      <img [src]="program.verifiedIcon" [alt]="program.verifiedIcon" class="ms-2" style="width: 18px; height: 18px;">
+     </div> 
+  </div>
+  
+ 
+  <div class="card-body">
+    <div class="mt-1 d-flex align-items-center">
+
+      <img [src]="program.flag" [alt]="program.country" class="me-2 rounded-small" style="width: 20px; height: 15px;">
+      <span class="countryName">{{program.country}}</span>
+    </div>
+    
+    <h5 class=" mt-2 programTitle card-title fw-bold">{{program.title}}</h5>
+
+    <div class="mb-2">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center">
+          <span class="badge me-2" style="width: 16px; height: 16px; border-radius: 50%; color: transparent"  [ngClass]="program.attendanceColor">
+            .</span>
+           <span class="courseDetails">
+            {{ program.attendance }}
+           </span> 
+        </div>
+        <div class="d-flex align-items-center">
+          <span class="badge text-dark d-flex align-items-center" style="width: 26px; height: 26px;" >  
+            <i class="bi bi-calendar2-date" color="text-danger"></i>
+          </span>
+          <span class="courseDetails">{{ program.startDate }}</span> 
+        </div>
+      </div>
+
+      <div class="d-flex mt-2">
+        <div *ngFor="let country of program.countryFlags" class="d-flex align-items-center me-2">
+          <img [src]="country.flag" class="me-2 rounded" style="width: 20px; height: 15px;">
+          <span class="courseDetails">{{ country.code }}.</span>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Course Details -->
+    <div class="mb-2">
+      <span class="courseDetails me-1">{{program.type}}.</span>
+      <span class="courseDetails  me-1">{{program.level}}.</span>
+      <span class="courseDetails">{{program.duration}}</span>
+    </div>
+    
+    <!-- Price -->
+    <div class="">
+      <span class="coursePrice">${{program.price.toLocaleString()}}</span>
+      <span class="text-muted">/year</span>
+
+    </div>
+  </div>
+</div>
+
