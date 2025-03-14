@@ -17,20 +17,8 @@ constructor(
 ) {}
 
 ngOnInit(): void {
-  this.route.paramMap.subscribe(params => {
-    const id = params.get('id');
-    if (id) {
-      this.programService.getProgram(id).subscribe(program => {
-        this.program = program;
-      });
-    }
-  });
+
 }
 
-toggleFavorite(): void {
-  if (this.program) {
-    this.programService.toggleFavorite(this.program.id);
-    this.program.isFavorite = !this.program.isFavorite;
-  }
-}
+
 }

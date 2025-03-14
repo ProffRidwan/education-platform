@@ -50,7 +50,7 @@
       </div>
       
     
-      <!-- Search bar and sorting dropdown -->
+      <!-- Search bar and sorting -->
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4">
         <div class="input-group mb-3 mb-md-0" style="max-width: 400px; width: 100%;">
           <span class="input-group-text bg-white border-end-0">
@@ -74,12 +74,12 @@
       </div>
    
     
-      <!-- Program Cards Grid -->
+      <!-- Program Cards-->
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" *ngFor="let program of programs">
-          <a [routerLink]="['/program', program.id]" class="text-decoration-none">
+          <a href="#">
             <app-program-card [program]="program"></app-program-card>
-          </a>
+          </a>   
         </div>
       </div>
       <!-- pagination -->
